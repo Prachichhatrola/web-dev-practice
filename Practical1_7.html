@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Country Capitals</title>
+    <style>
+        select {
+            font-size: 16px;
+            padding: 5px;
+        }
+        
+        #capital {
+            color: #007bff;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>PRACHI CHHATROLA-210210116030
+    </h4>
+    <h1>Country Capitals</h1>
+
+    <label for="country">Select a country:</label>
+    <select id="country" onchange="showCapital()">
+        <option value="">Select a country</option>
+        <option value="usa">USA</option>
+        <option value="canada">Canada</option>
+        <option value="uk">UK</option>
+        <option value="france">France</option>
+        <option value="germany">Germany</option>
+    </select>
+
+    <p>Capital: <span id="capital"></span></p>
+
+    <script>
+        function showCapital() {
+            const countrySelect = document.getElementById("country");
+            const capitalSpan = document.getElementById("capital");
+            const selectedCountry = countrySelect.value;
+            let capital = "";
+
+            switch (selectedCountry) {
+                case "usa":
+                    capital = "Washington, D.C.";
+                    break;
+                case "canada":
+                    capital = "Ottawa";
+                    break;
+                case "uk":
+                    capital = "London";
+                    break;
+                case "france":
+                    capital = "Paris";
+                    break;
+                case "germany":
+                    capital = "Berlin";
+                    break;
+                default:
+                    capital = "";
+            }
+
+            capitalSpan.textContent = capital;
+        }
+    </script>
+</body>
+
+</html>
