@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Registration</title>
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var dob = document.getElementById("dob").value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+            var namePattern = /^[A-Za-z\s]+$/;
+            var emailPattern = /\S+@\S+\.\S+/;
+            var mobilePattern = /^\d{10}$/;
+            if (!name.match(namePattern)) {
+                alert("Please enter a valid name.");
+                return false;
+            }
+            if (dob === "") {
+                alert("Please enter your Date of Birth.");
+                return false;
+            }
+            if (!email.match(emailPattern)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+            if (!mobile.match(mobilePattern)) {
+                alert("Please enter a valid 10-digit mobile number.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>User Registration</h1>
+    <form onsubmit="return validateForm()" action="submit_registration.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob"><br>
+        <label for="email">Email Id:</label>
+        <input type="email" id="email" name="email"><br>
+        <label for="mobile">Mobile No.:</label>
+        <input type="text" id="mobile" name="mobile"><br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
