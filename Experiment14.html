@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Slider using jquery </title>
+</head>
+<style>
+#slider { width: 300px; height: 200px;
+overflow: hidden; position: relative;
+}
+
+.slide {
+width: 100%;
+height: 100%; display: none; position: absolute;
+}
+
+img {
+width: 100%;
+ 
+height: 100%;
+}
+
+button {
+margin-top: 10px; padding: 10px;
+}
+
+</style>
+<body>
+<h3>Image Slider using jquery</h3>
+<div id="slider">
+<div class="slide"><img src="image1.jpg" alt="Image 1"></div>
+<div class="slide"><img src="image2.jpg" alt="Image 2"></div>
+<div class="slide"><img src="image3.jpg" alt="Image 3"></div>
+</div>
+<button id="prev"><</button>
+<button id="next">></button>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () { var currentIndex = 0;
+var slides = $('.slide');
+
+// Show the first slide slides.eq(currentIndex).show();
+
+$('#prev').on('click', function () { slides.eq(currentIndex).hide();
+currentIndex = (currentIndex - 1 + slides.length) % slides.length; slides.eq(currentIndex).show();
+});
+
+$('#next').on('click', function () { slides.eq(currentIndex).hide();
+currentIndex = (currentIndex + 1) % slides.length; slides.eq(currentIndex).show();
+});
+});
+</script>
+</html>
