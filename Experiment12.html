@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Registration</title>
+    <script>
+        function combineInformation() {
+            // Get references to the form fields
+            var name = document.getElementById("name").value;
+            var dob = document.getElementById("dob").value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+            var address = document.getElementById("address").value;
+            var state = document.getElementById("state").value;
+            var education = document.getElementById("education").value;
+            var image = document.getElementById("image").value;
+
+            // Combine the information
+            var combinedInfo = "Name: " + name + "\n" +
+                "Date of Birth: " + dob + "\n" +
+                "Gender: " + gender + "\n" +
+                "Email: " + email + "\n" +
+                "Mobile No.: " + mobile + "\n" +
+                "Address: " + address + "\n" +
+                "State: " + state + "\n" +
+                "Education: " + education + "\n" +
+                "Image Upload: " + image;
+
+            // Display the combined information in a textarea
+            document.getElementById("result").value = combinedInfo;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>User Registration</h1>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name"><br>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob"><br>
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female<br>
+        <label for="email">Email Id:</label>
+        <input type="email" id="email"><br>
+        <label for="mobile">Mobile No.:</label>
+        <input type="text" id="mobile"><br>
+        <label for="address">Address:</label>
+        <textarea id="address"></textarea><br>
+        <label for="state">State:</label>
+        <select id="state">
+            <option value="Gujrat">New York</option>
+            <option value="rajsthan">California</option>
+            <option value="maharastra">Texas</option>
+        </select><br>
+        <label for="education">Education:</label>
+        <input type="text" id="education"><br>
+        <label for="image">Image Upload:</label>
+        <input type="file" id="image"><br>
+        <button type="button" onclick="combineInformation()">Combine Information</button>
+        <textarea id="result" rows="10" cols="50" readonly></textarea>
+    </form>
+</body>
+</html>
